@@ -3,7 +3,39 @@
 # Gina Schmalzle
 # 20140723, works
 
-"""Database populating tools for Million Song Database."""
+"""Database populating tools for Million Song Database.  These scripts assume that
+you already created the bones for your sqlite3 database.  The script to do that is
+in ../DATA/DB/build_DB/ and has the following structure:
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    user TEXT,
+    selection_number NUMBER,
+    artist_id TEXT,
+    artist_name TEXT,
+    date_added TEXT,
+    foreign_id TEXT,
+    last_modified TEXT,
+    song_id TEXT,
+    song_name TEXT
+);
+
+These functions allow the user to obtain a list of files that were downloaded,
+retrieve the contents of the files in the form of a dictionary, retrieve contents
+a tuple, and finally a function to popultate the database.
+
+To run in python repl (assuming your database is in the same place I have it):
+
+  import populate_db as P
+  P.populate_db_w_users()
+
+To check if data have been properly uploaded, type in the terminal:
+  sqlite3 yourdb.db
+  SELECT * FROM users;
+
+Enjoy.
+"""
 
 import os
 import sqlite3
@@ -72,7 +104,6 @@ def populate_db_w_users(to_print=None, db='music_user.db'):
         for user in list_of_users:
             i = i + 1
             mytuple = (i,user[0],user[1],user[2],user[3],user[4],user[5],user[6],user[7],user[8])
-            print ('mytuple', mytuple)
             if user == ['']:
                 print('\n    Empty tuple found; skipping.\n')
                 continue
@@ -83,4 +114,5 @@ def populate_db_w_users(to_print=None, db='music_user.db'):
                     '''INSERT INTO users VALUES''' +
                     str(tuple(mytuple)) )
             except:
+                i = i - 1
                 continue
