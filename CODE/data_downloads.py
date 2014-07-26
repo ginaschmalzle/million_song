@@ -43,7 +43,7 @@ def get_user_dictionary(user_id, save_to_file = 'yes'):
           f.write(str(c))
     except Exception as e:
             print('Error {}\n    in file {}'.format(e, file))
-  #return c
+  return c
 
 def download_user_playlist(sample_start=9724, sample_end = 10000):
   ''' Downloads user play lists from sample_start to sample_end and puts

@@ -30,7 +30,7 @@ def simple_recommender(song='', artist = 'Usher', plot = 'yes'):
   10 songs that are in other user song lists that also include the given artist
   and song, use plot = yes.  To run in python repl type:
     import recommender as R
-    R.recommender(song = YOUR SONG IN PARENS, artist = YOUR ARTIST IN PARENS)
+    R.simple_recommender(song = YOUR SONG IN PARENS, artist = YOUR ARTIST IN PARENS)
   Enjoy!'''
   # Collect other people's play lists that have your song and/or artist
   if song == '':
@@ -128,7 +128,10 @@ def user_recommender(user = 'CAEYTUX1332EA3C8E2'):
   for each song and then ranks the other users as most to least similar to the
   user defined above.  The top 3 similar users are chosen, and then songs not
   already in the user's play list are ranked by the most counted.
-  The top songs are displayed.'''
+  The top songs are displayed.To run in python repl type:
+    import recommender as R
+    R.user_recommender(user = YOUR USER ID)
+  Enjoy!'''
   # Retrieve songs list from specified user
   user_list = R.retrieve_songs_from_user(user)
   song_list = []; user_songs = []
