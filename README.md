@@ -25,5 +25,4 @@ Given this information, I made two recommenders.  The first recommender assumes 
 
 5. **The Recommenders**
 	I used python to develop my recommenders.   In /CODE/recommender.py I have two recommenders, as described above, as well as in the code.  The recommender that provides recommendations based only on a selected song is called simple_recommender().  You can choose to plot the counts from the top ten songs.  Directions on how to do that are included in the code.  You can also run the simple_recommender in a fancy way that asks the user for input using the function run_simple_recommender().
-	The second recommender that takes into consideration the selected user's entire play list is called user_recommender().   More information about this recommender is included in the code.  
-	All recommenders have information on how to run them in the code.
+	The second recommender that takes into consideration the selected user's entire play list is called user_recommender().   More information about this recommender is included in the code.  *All recommenders have information on how to run them in the code.*
