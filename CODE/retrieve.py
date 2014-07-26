@@ -44,6 +44,16 @@ def artisttuple2list(retrieved_data):
     artist_list.append(item[0].encode('utf8'))
   return artist_list
 
+def artistsongtuple2list(retrieved_data):
+  ''' Convert sqlite3 tuple format to list of lists.'''
+  artistsong_list = []
+  for item in retrieved_data:
+    artist_name = item[0].encode('utf8')
+    song_name = item[1].encode('utf8')
+    if song_name != 'NA':
+       artistsong_list.append([artist_name, song_name])
+  return artistsong_list
+
 def retrieve_users_info_from_song(song='Half Of My Heart', artist = 'John Mayer',
             db='music_user.db', type='list_of_lists'):
   """Give me a song and an artist, and I will retrieve users and their info that listened
@@ -120,7 +130,6 @@ def retrieve_list_of_artists (db='music_user.db'):
   retrieved_data = cursor_output.fetchall()
   artists = artisttuple2list(retrieved_data)
   artists.sort()
-  artist_list = [];
   prev_item = 'test';
   for item in artists:
     if item != prev_item:
@@ -129,6 +138,56 @@ def retrieve_list_of_artists (db='music_user.db'):
     else:
       continue
   return artist_list
+
+def retrieve_list_of_artists_and_songs (db='music_user.db'):
+  """Retrieve all artists from database"""
+  retrieved_data = ()
+  artist_list = []
+  connection = sqlite3.connect(os.path.join('../DATA/DB/', db))
+  with connection:
+      cursor = connection.cursor()
+      try:
+        cursor_output = cursor.execute(
+          '''SELECT artist_name, song_name FROM users''')
+      except Exception as e:
+        # What exceptions may we encounter here?
+        print(e)
+  retrieved_data = cursor_output.fetchall()
+  artists = artistsongtuple2list(retrieved_data)
+  artists.sort()
+  prev_item = 'test';
+  for item in artists:
+    if item != prev_item:
+      artist_list.append(item)
+      prev_item = item
+    else:
+      continue
+  return artist_list
+
+def retrieve_list_of_users (db='music_user.db'):
+  """Retrieve all users from database"""
+  retrieved_data = ()
+  users_list = []
+  connection = sqlite3.connect(os.path.join('../DATA/DB/', db))
+  with connection:
+      cursor = connection.cursor()
+      try:
+        cursor_output = cursor.execute(
+          '''SELECT user FROM users''')
+      except Exception as e:
+        # What exceptions may we encounter here?
+        print(e)
+  retrieved_data = cursor_output.fetchall()
+  users = artisttuple2list(retrieved_data)
+  users.sort()
+  prev_item = 'test';
+  for item in users:
+    if item != prev_item:
+      users_list.append(item)
+      prev_item = item
+    else:
+      continue
+  return users_list
 
 def retrieve_list_of_songs_by_artist (artist = 'John Mayer', db='music_user.db',):
   """Retrieve all songs from artist in database"""
