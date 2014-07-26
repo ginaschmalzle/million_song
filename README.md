@@ -5,9 +5,9 @@ Background:  The [Million Song Dataset](http://labrosa.ee.columbia.edu/millionso
 
 1. A unique user ID code
 2. All the songs in their play list that include
-	a.song name and id
-	b artist name and id
-	c. the number of times the song was played
+	* song name and id
+	* artist name and id
+	* the number of times the song was played
 
 Given this information, I made two recommenders.  The first recommender assumes no prior knowledge of the user's playlist. It finds other people who have played the selected song in their history, and pulls up other songs from all their playlists, counts the number of times the song appears in people's playlists and spits out the top songs from their lists.  The second recommender is more complex.  It takes a given user's entire song list, and finds other users that are most similar to their play list.  From that information, the second recommender spits out songs from the similar users' song list that is not in the original user's song list.  Below is a description of how I did it:
 
