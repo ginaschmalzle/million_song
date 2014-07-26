@@ -1,7 +1,7 @@
 The Million Song Recommender Project
 =========================================
 
-Background:  The [Million Song Dataset](http://labrosa.ee.columbia.edu/millionsong/) is a publicly available collection of audio features for a million contemporary popular music tracks.  I am focusing on the [Echo Nest Taste Profile Subset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile), which contains the official user dataset of the Million Song Dataset. In this dataset, there are over a million unique users with over 384,000 unique songs.  Each user play list contains:
+The [Million Song Dataset](http://labrosa.ee.columbia.edu/millionsong/) is a publicly available collection of audio features for a million contemporary popular music tracks.  I am focusing on the [Echo Nest Taste Profile Subset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile), which contains the official user dataset of the Million Song Dataset. In this dataset, there are over a million unique users with over 384,000 unique songs.  Each user play list contains:
 
 1. A unique user ID code
 2. All the songs in their play list that include
