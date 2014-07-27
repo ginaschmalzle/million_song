@@ -23,7 +23,7 @@ and ranks them according to how many databases they show up in.
 The module operator requires Python 2.7, hence this code needs to be run in that
 version of Python.'''
 
-def simple_recommender(song='', artist = 'Usher', plot = 'yes'):
+def simple_recommender(song='Yeah!', artist = 'Usher', plot = 'yes'):
   ''' This recommender searches for other people that also downloaded the song,
   then looks at their song lists.  It counts the number of times a song was
   in a other user's song list and ranks them. If you would like to see the top
@@ -74,6 +74,7 @@ def simple_recommender(song='', artist = 'Usher', plot = 'yes'):
     f.set_xticklabels(names, rotation = 90, ha='center')
     f.set_ylabel('Counts')
     f.set_title('Top 10 other songs in users song lists that include \''+song+'\' by '+artist)
+    pylab.savefig('top10.jpg')
     pylab.show()
   # Return the sorted count of songs/artists
   return sorted_count
