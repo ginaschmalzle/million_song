@@ -2,7 +2,10 @@ import retrieve as R
 import operator
 import numpy as np
 import matplotlib as plt
+import matplotlib.pyplot as pyplot
 import pylab
+import time
+from random import randrange
 
 plt.rcParams['figure.figsize'] = [9,9]
 plt.rcParams['figure.dpi'] = 80
@@ -202,3 +205,22 @@ def user_recommender(user = 'CAEYTUX1332EA3C8E2'):
     if (sorted_osong_count[i][0][1] not in user_songs ):
       a = a + 1
       print(str(a)+'. ' + sorted_osong_count[i][0][1]+' by '+sorted_osong_count[i][0][0])
+
+def latency_user_rec():
+  user_list = R.retrieve_list_of_users ()
+  latency = []
+  for i in range (0, 100):
+    n = randrange(0,len(user_list)-1)
+    start = time.time()
+    try:
+      user_recommender(user_list[n])
+    except Exception:
+      continue
+    end = time.time()
+    latency.append(end-start)
+  pyplot.hist(latency)
+  pyplot.title("Time to run user recommender")
+  pyplot.xlabel("Time (s)")
+  pyplot.ylabel("Counts")
+  pyplot.savefig("latency_user_rec.jpg")
+  pyplot.show()
