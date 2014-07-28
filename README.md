@@ -9,7 +9,7 @@ Recommender systems filter information to predict how a user would like a given 
 	* artist name and id
 	* the number of times the song was played
 
-Classification and prediction models common to data mining/machine learning techniques are not used in these recommenders.  George E. P. Box is famous for saying “all models are wrong- some models are useful” (to be fair however, Mr. Tukey did not live in a world of Big Data).  Another good quote is “keep it simple stupid”.  Recognizing that a scalable, model-based solution to the problem may ultimately have the most utility for other applications, such complexity should be justified.  Hence, to start, I decided on a simple, deterministic approach for these recommenders.  
+Classification and prediction models common to data mining/machine learning techniques are not used in these recommenders.  George E. P. Box is famous for saying “all models are wrong- some models are useful”.  Another good quote is “keep it simple stupid”.  Recognizing that a scalable, model-based solution to the problem may ultimately have the most utility for other applications, such complexity should be justified.  Hence, to start, I decided on a simple, deterministic approach for these recommenders.  
 
 Below I outline the steps for making my recommenders, including downloading the data, putting it into a database, and finally using it in the recommenders.  *Section 5. Recommenders* includes more information on the logic and how they are run.    
 
