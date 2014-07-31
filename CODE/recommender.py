@@ -209,7 +209,7 @@ def user_recommender(user = 'CAEYTUX1332EA3C8E2'):
 def latency_user_rec():
   user_list = R.retrieve_list_of_users ()
   latency = []
-  for i in range (0, 100):
+  for i in range (0, 1000):
     n = randrange(0,len(user_list)-1)
     start = time.time()
     try:
